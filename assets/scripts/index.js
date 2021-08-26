@@ -3,12 +3,18 @@ let tela = document.querySelector('canvas');
 let pincel = tela.getContext('2d');
 
 pincel.fillStyle = 'lightgray';
-pincel.fillRect(0, 0, 600, 400);
+pincel.fillRect(0, 0, 800, 600);
 
 let raio = 10;
 let xAleatorio;
 let yAleatorio;
 let pontos = 0;
+
+function startGame() {
+    startButton.destroy();
+    ball.body.velocity.set(150, -150);
+    playing = true;
+}
 
 function desenhaCirculo(x, y, raio, cor) {
 
@@ -20,7 +26,7 @@ function desenhaCirculo(x, y, raio, cor) {
 
 function limpaTela() {
 
-    pincel.clearRect(0, 0, 600, 400);
+    pincel.clearRect(0, 0, 800, 600);
 }
 
 function desenhaAlvo(x, y) {
@@ -35,11 +41,16 @@ function posicaoAlvo(maximo) {
 
 }
 
+function play() {
+    let audio = document.getElementById("audio");
+    audio.play();
+  }
+
 function atualizaTela(){
 
     limpaTela();
-    xAleatorio = posicaoAlvo(600);
-    yAleatorio = posicaoAlvo(400);
+    xAleatorio = posicaoAlvo(800);
+    yAleatorio = posicaoAlvo(600);
     desenhaAlvo(xAleatorio, yAleatorio);
 }
 setInterval(atualizaTela, 1000);
@@ -53,8 +64,13 @@ function dispara(evento) {
             && (y > yAleatorio - raio) 
             && (y < yAleatorio + raio)) {
         pontos++
-        areaQueExibePontos.textContent = pontos; 
-    }
+        areaQueExibePontos.textContent = pontos;
+
+        if(maximopontuacao < pontuacao) { maximopontuacao = pontuacao;}
+document.getElementById("pontos").innerHTML = pontuacao;
 }
+        
+    }
+
 
 tela.onclick = dispara;
