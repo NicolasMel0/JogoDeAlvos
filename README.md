@@ -17,5 +17,10 @@ O jogo é passeado em acertar o alvo de maneira que consiga marcar os pontos, de
 
 https://nicolasmel0.github.io/JogoDeAlvos/
 
+## Apresentação
+
+https://docs.google.com/presentation/d/1E4s7mUvPB3cN0YFwSA1-YVTZxM8hUO0k7_NmR2YZeNo/edit?usp=sharing
+
+
 
 
