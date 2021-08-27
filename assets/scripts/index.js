@@ -65,9 +65,6 @@ function dispara(evento) {
             && (y < yAleatorio + raio)) {
         pontos++
         areaQueExibePontos.textContent = pontos;
-
-        if(maximopontuacao < pontuacao) { maximopontuacao = pontuacao;}
-document.getElementById("pontos").innerHTML = pontuacao;
 }
         
     }
